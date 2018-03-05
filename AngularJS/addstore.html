@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="addStore">
+    <head>
+        <link href="index.css" rel="stylesheet" type="text/css">
+        <title>New Store</title>
+    </head>
+
+ <script src="angular/angular.min.js" type="text/javascript">
+    </script>
+    <script src="home.js" type="text/javascript"></script>
+    
+    
+    
+    <body ng-controller="addNewStore">
+        <h1>Add New Store</h1>
+        <br><br>
+        <form ng-submit="addStore()" id="formStore">
+            NameOfStore : <input type="text" name="namenewStore" ng-model="newStore" required>
+            <br><br>
+             TypeOfStore &nbsp;:&nbsp; <input type="text" name="typenewStore" ng-model="newStore" required>
+            <br><br>
+            OwnerName &nbsp;:&nbsp; <input type="text" name="OwnernewStore" ng-model="newStore" required>
+            <br><br>
+            Location  &nbsp;:&nbsp; <input type="text" name="LocationnewStore" ng-model="newStore" required>
+            <br><br>
+            
+            <button ng-click="addStore()"> ADD</button>
+        </form>
+        
+        
+    </body>
+</html>

@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,15 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.SWE.Entities.User;
 import com.SWE.Repositories.UserRepository;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
 	
-    @GetMapping("/onlinemarket/signup")
-    public User register(Model model, @ModelAttribute User newUser){
+    @PostMapping("/onlinemarket/signup")
+    public User signup(Model model, @ModelAttribute User newUser){
     	model.addAttribute("newUser", new User());
     	userRepository.save(newUser);
     	System.out.println(newUser.getPassword());
@@ -33,10 +35,11 @@ public class UserController {
     	return newUser ;
     }
     
-    @RequestMapping("/onlinemarket/signin/{email}/{password}")
-    public User login(@PathVariable String email, @PathVariable String password) throws ClassNotFoundException, SQLException{
+    @PostMapping("/onlinemarket/signin")
+    public User login(Model model, @ModelAttribute User loginUser) throws ClassNotFoundException, SQLException{
+    	model.addAttribute("loginUser", new User());
     	for(User us : userRepository.findAll()) {
-    		if(us.getEmail().equals(email) && us.getPassword().equals(password)) {
+    		if(us.getUsername().equals(loginUser.getUsername()) && us.getPassword().equals(loginUser.getPassword())) {
     			System.out.println("Successfully login! ");
     			return us;
     		}

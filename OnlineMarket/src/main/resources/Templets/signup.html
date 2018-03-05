@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register Form</title>
+        <link href="index.css" rel="stylesheet" type="text/css">
+    </head>
+    
+
+ 	 
+
+    <body>
+        <h1 id="h2">Sign Up</h1>
+        <p>----------------------------------------------------------------------</p>
+        
+        <div id="div3">
+		<form method="GET" ht:action="@{/SignUp}"th:object="{$User}">
+            UserName : <input type="text" th:field="*{name}" placeholder="Enter your name">
+                <br><br><br>
+                E-mail : <input type="email" th:field="*{email}" placeholder="Enter your e-mail">
+                <br><br><br>
+                Password : <input type="password" th:field="*{password}" placeholder="Enter your Password">
+                <br><br><br>
+            <input type="submit" value="Sign In" id="input2">
+                <br><br>
+            </form>
+        </div>
+    </body>
+</html>
