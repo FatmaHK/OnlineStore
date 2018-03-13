@@ -1,10 +1,7 @@
 package com.SWE.Entities;
 import java.util.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * 
@@ -12,16 +9,19 @@ import javax.persistence.Id;
 @Entity
 public class Product {
 
-    public Product() {
-    }
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     private String name;
     private float price;
     private String type;
     private String brand;
     private int quantity;
+    private Set<StoreProduct> storeProducts;
+    
+    public Product() {
+    }
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}
@@ -43,14 +43,6 @@ public class Product {
 	public String getType() {
 		return type;
 	}
-	public Product(String name, float price, String type, String brand, int quantity) {
-		super();
-		this.name = name;
-		this.price = price;
-		this.type = type;
-		this.brand = brand;
-		this.quantity = quantity;
-	}
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -66,5 +58,13 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	@OneToMany(mappedBy = "product")
+	public Set<StoreProduct> getStoreProducts() {
+		return storeProducts;
+	}
+	public void setStoreProducts(Set<StoreProduct> storeProducts) {
+		this.storeProducts = storeProducts;
+	}
+	
 
 }
