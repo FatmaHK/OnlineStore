@@ -1,32 +1,43 @@
 package com.SWE.Entities;
 import java.util.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * 
  */
 @Entity
 public class Store {
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	
     private Integer id;
     private String name;
     private String type;
     private String ownerName;
     private String location;
     private boolean isAccepted;
-    public Store(String name, String type, String ownerName, String location, boolean isAccepted) {
+    private int numberOfVisitors;
+    private int numberOfBuyers;
+    private Set<StoreProduct> storeProducts;
+    
+    
+    
+
+	public Store() {
+    }
+public Store(Integer id, String name, String type, String ownerName, String location, boolean isAccepted) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.ownerName = ownerName;
 		this.location = location;
 		this.isAccepted = isAccepted;
+		storeProducts = new HashSet<StoreProduct>();
 	}
+
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}
@@ -63,9 +74,26 @@ public class Store {
 	public void setIsAccepted(boolean isAccepted) {
 		this.isAccepted = isAccepted;
 	}
-	public Store() {
-    }
+	
+	public int getNumberOfVisitors() {
+		return numberOfVisitors;
+	}
+	public void setNumberOfVisitors(int numberOfVisitors) {
+		this.numberOfVisitors = numberOfVisitors;
+	}
+	public int getNumberOfBuyers() {
+		return numberOfBuyers;
+	}
+	public void setNumberOfBuyers(int numberOfBuyers) {
+		this.numberOfBuyers = numberOfBuyers;
+	}
+	@OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
+	public Set<StoreProduct> getStoreProducts() {
+		return storeProducts;
+	}
 
-
+	public void setStoreProducts(Set<StoreProduct> storeProducts) {
+		this.storeProducts = storeProducts;
+	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SWE.Entities.Product;
+import com.SWE.Entities.StoreProduct;
 import com.SWE.Repositories.ProductRepository;
 
 @RestController
@@ -33,5 +34,23 @@ public class ProductController {
             	return p;
         }
         return null;
+	}
+	
+	@GetMapping("/onlinemarket/buyproduct")
+	public boolean buyProduct(Model model, int sId, String pName, int requiredAmount) {
+		StoreProduct checkStore= new StoreProduct();
+		model.addAttribute("checkStore", new StoreProduct());
+		checkStore.setStoreID(sId);
+		checkStore.setpName(pName);
+		for(store_product sp: storeProductRepository.findAll()) {
+			if(sp.getStoreID()== checkStore.getStoreID() && sp.getpName().equals(checkStore.getpName()) &&
+					sp.getProduct_Quantity()>= requiredAmount) {
+				sp.setProduct_Quantity(sp.getProduct_Quantity()- requiredAmount);
+				storeProductRepository.save(sp);
+				System.out.println("Success! ");
+				return true;
+			}
+		}
+		return false;
 	}
 }

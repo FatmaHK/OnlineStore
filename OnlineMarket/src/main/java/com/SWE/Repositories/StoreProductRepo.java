@@ -3,8 +3,8 @@ package com.SWE.Repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
-import com.SWE.Entities.Product;
+import com.SWE.Entities.StoreProduct;
 
-public interface ProductRepository extends CrudRepository<Product, Integer>{
+public interface StoreProductRepo extends CrudRepository<StoreProduct, Integer>{
 
 }
