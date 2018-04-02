@@ -33,10 +33,11 @@ public class UserController {
     	return newUser ;
     }
     
-    @RequestMapping("/onlinemarket/signin/{email}/{password}")
-    public User login(@PathVariable String email, @PathVariable String password) throws ClassNotFoundException, SQLException{
+    @GetMapping("/onlinemarket/signin")
+    public User login(Model model, @ModelAttribute User loginUser) throws ClassNotFoundException, SQLException{
+    	model.addAttribute("loginUser", new User());
     	for(User us : userRepository.findAll()) {
-    		if(us.getEmail().equals(email) && us.getPassword().equals(password)) {
+    		if(us.getUsername().equals(loginUser.getUsername()) && us.getPassword().equals(loginUser.getPassword())) {
     			System.out.println("Successfully login! ");
     			return us;
     		}

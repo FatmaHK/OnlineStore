@@ -5,17 +5,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SWE.Entities.Product;
+import com.SWE.Entities.Store;
 import com.SWE.Entities.StoreProduct;
 import com.SWE.Repositories.ProductRepository;
+import com.SWE.Repositories.StoreProductRepo;
 
 @RestController
 public class ProductController {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private StoreProductRepo spRepo;
 	
 	@GetMapping("/onlinemarket/addproduct")
 	public boolean addProduct(Model model, @ModelAttribute Product newProduct) {
@@ -36,17 +42,21 @@ public class ProductController {
         return null;
 	}
 	
-	@GetMapping("/onlinemarket/buyproduct")
-	public boolean buyProduct(Model model, int sId, String pName, int requiredAmount) {
-		StoreProduct checkStore= new StoreProduct();
-		model.addAttribute("checkStore", new StoreProduct());
-		checkStore.setStoreID(sId);
-		checkStore.setpName(pName);
-		for(store_product sp: storeProductRepository.findAll()) {
-			if(sp.getStoreID()== checkStore.getStoreID() && sp.getpName().equals(checkStore.getpName()) &&
-					sp.getProduct_Quantity()>= requiredAmount) {
-				sp.setProduct_Quantity(sp.getProduct_Quantity()- requiredAmount);
-				storeProductRepository.save(sp);
+	@GetMapping("/onlinemarket/buyproduct/{sID}/{pID}/{requiredAmount}")
+	public boolean buyProduct(@PathVariable int sID, @PathVariable int pID, @PathVariable int requiredAmount) {
+		Store s = new Store();
+		Product p = new Product();
+		s.setId(sID);
+		p.setId(pID);
+		StoreProduct storeProduct = new StoreProduct();
+		storeProduct.setStore(s);
+		storeProduct.setProduct(p);
+		for(StoreProduct sp: spRepo.findAll()) {
+			if(sp.getStore().getId()== storeProduct.getStore().getId() && sp.getProduct().getId() == storeProduct.getProduct().getId() &&
+				sp.getQuantity()>= requiredAmount) {
+				sp.setQuantity(sp.getQuantity() - requiredAmount);
+				sp.setNumberOfSoldItems(sp.getNumberOfSoldItems() + 1);
+				spRepo.save(sp);
 				System.out.println("Success! ");
 				return true;
 			}
