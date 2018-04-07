@@ -6,10 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.SWE.Controllers.IVisitor;
 
 @Entity
-public class Brand implements IStatistics {
+public class Brand {
 
     public Brand() {
     }
@@ -39,8 +38,5 @@ public class Brand implements IStatistics {
 	public void setCategory(String category) {
 		this.category = category;
 
-	}
-	public void acceptVisitor(IVisitor visitor) {
-		visitor.visit(this);
 	}
 }

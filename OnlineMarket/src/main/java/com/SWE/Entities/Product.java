@@ -3,14 +3,13 @@ import java.util.*;
 
 import javax.persistence.*;
 
-import com.SWE.Controllers.IVisitor;
 
 /**
  * 
  */
 @Entity
 @Table(name = "product")
-public class Product implements IStatistics{
+public class Product {
 
     private Integer id;
     private String name;
@@ -68,10 +67,5 @@ public class Product implements IStatistics{
 	public void setStoreProducts(Set<StoreProduct> storeProducts) {
 		this.storeProducts = storeProducts;
 	}
-
-	public void acceptVisitor(IVisitor visitor) {
-		visitor.visit(this);
-	}
-	
 
 }

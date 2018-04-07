@@ -42,7 +42,7 @@ public class ProductController {
         return null;
 	}
 	
-	@GetMapping("/onlinemarket/buyproduct/{sID}/{pID}/{requiredAmount}")
+	@GetMapping("/onlinemarket/buyproduct")
 	public boolean buyProduct(@PathVariable int sID, @PathVariable int pID, @PathVariable int requiredAmount) {
 		Store s = new Store();
 		Product p = new Product();

@@ -5,10 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.SWE.Controllers.IVisitor;
 
 @Entity
-public class User implements IStatistics {
+public class User {
 
     public User() {
     }
@@ -63,9 +62,6 @@ public class User implements IStatistics {
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
-	public void acceptVisitor(IVisitor visitor) {
-		visitor.visit(this);
 	}
 
 }
