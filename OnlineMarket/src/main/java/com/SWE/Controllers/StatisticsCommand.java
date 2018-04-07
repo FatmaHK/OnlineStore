@@ -19,13 +19,13 @@ public class StatisticsCommand {
 
 	public void enableStatistics(Statistic stat) {
 		stat = statRepo.findOne(stat.getId());
-//		stat.setEnabled(true);
+		stat.setEnabled(true);
 		statRepo.save(stat);
 	}
 	
 	public void disableStatistics(Statistic stat) {
 		stat = statRepo.findOne(stat.getId());
-//		stat.setEnabled(false);
+		stat.setEnabled(false);
 		statRepo.save(stat);
 	}
 }

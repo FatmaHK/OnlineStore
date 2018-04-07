@@ -32,7 +32,7 @@ public class StoreController {
 	@GetMapping("/onlinemarket/addstore/request")
 	public boolean requestToAddStore(Model model, @ModelAttribute Store newStore) {
 		model.addAttribute("newStore", new Store());
-//		newStore.setIsAccepted(false);	
+		newStore.setIsAccepted(false);	
 		storeRepository.save(newStore);
 		return true;
 	}
@@ -41,7 +41,7 @@ public class StoreController {
 	@GetMapping("/onlinemarket/addstore/accept-request")
 	public boolean acceptStore(Model model, @ModelAttribute Store newStore) {
 		model.addAttribute("newStore", new Store());
-//		newStore.setIsAccepted(true);	
+		newStore.setIsAccepted(true);	
 		storeRepository.save(newStore);
 		return true;
 	}
