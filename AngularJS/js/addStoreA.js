@@ -13,4 +13,4 @@ app.controller('myCtrl', function($scope, $http) {
                 alert("try again");
             });
       };
-}
+});

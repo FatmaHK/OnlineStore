@@ -31,24 +31,15 @@ public class StatisticsPanelController {
 	@GetMapping("/onlinemarket/addStatistics/{id}")
 	public void addStatistics(Model model, @ModelAttribute Statistic newStat) {
 		model.addAttribute("newStat", new Statistic());
-		StatisticsCommand statCmd = new StatisticsCommand();
-		statCmd.setStatRepo(statRepo);
-		statCmd.enableStatistics(newStat);
+		StatisticsCommand.statRepo = statRepo;
+		StatisticsCommand.enableStatistics(newStat);
 	}
 	
 	@GetMapping("/onlinemarket/removeStatistics/{id}")
 	public void removeStatistics(Model model, @ModelAttribute Statistic stat) {
 		model.addAttribute("stat", new Statistic());
-		StatisticsCommand statCmd = new StatisticsCommand();
-		statCmd.setStatRepo(statRepo);
-		statCmd.disableStatistics(stat);
+		StatisticsCommand.statRepo = statRepo;
+		StatisticsCommand.disableStatistics(stat);
 	}
-	
-	@RequestMapping("/onlinemarket/{store_id}")
-	public int getStatistics(@PathVariable int store_id) {
-		
-		return 0;
-	}
-	
 	
 }

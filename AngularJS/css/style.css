@@ -134,6 +134,11 @@ ul
     border-radius: 10px;
 }
 
+#div2{
+    margin-top: 70px;
+    text-align: center;
+    font-size: 20px;
+}
 .SignIn .Form1{
     margin-top: 50px;
 }
