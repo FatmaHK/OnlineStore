@@ -6,6 +6,7 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.SWE.Repositories.ProductRepository;
 import com.SWE.Repositories.StoreProductRepo;
 import com.SWE.Repositories.StoreRepository;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class StoreController {
 	@Autowired
