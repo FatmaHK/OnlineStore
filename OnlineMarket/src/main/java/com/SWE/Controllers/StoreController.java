@@ -56,7 +56,7 @@ public class StoreController {
 		return null;
 	}
 	
-	@RequestMapping("/onlinemarket/store-statistics/{sName}")
+	@GetMapping("/onlinemarket/store-statistics/{sName}")
 	public ArrayList<Statistics> getStatistics(@PathVariable String sName) {
 		Store store = getStore(sName);
 		ArrayList<Statistics> statistics = new ArrayList();

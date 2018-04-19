@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Buyer</title>
+        <script src="Angular/angular.min.js"></script>
+        <script src="Angular/script.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+		
+		     <script src="angular/angular.min.js" type="text/javascript"></script>
+        <script src="connect.js" type="text/javascript"></script>
+		
+    </head>
+    <body>
+        <div class="Buy">
+            <div class="navbar">
+                <div class="container">
+                    <div class="logo">
+                        <h1>Company</h1>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li class="active"><a href="Home.html"> Home</a></li>
+                            <li><a href="Log%20In.html">Sign In</a></li>
+                            <li><a href="SignUp.html">Sign Up</a></li>
+                            <li><a href="SelectYourType.html">Select your Type</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="buy">
+                <h1>Welcome to Store</h1>
+                <div class="row">
+                    <div class="col">
+                        <button class="buttonbuy1"><a href="#">Electronecs</a></button>
+		
+						
+                        
+                        <button class="buttonbuy2"><a href="#">Clothes</a></button>
+                        
+                        <button class="buttonbuy3"><a href="#">Shoses</a></button>
+                    </div>
+                </div>
+                 <div class="sidebar1">
+                        <ul>
+                            <li class="li1"><a href="#">Mobile Phones</a>
+                            </li>
+                             <li><a href="#">Pcs</a></li>
+                            </ul>
+                    </div>
+                <div class="sidebar2">
+                        <ul>
+                            <li><a href="#">Mens</a></li>
+                             <li><a href="#">Women</a></li>
+                            <li><a href="#">Children</a></li>
+                            </ul>
+                    </div>
+                <div class="sidebar3">
+                        <ul>
+                            <li><a href="#">Nike</a></li>
+                             <li><a href="#">Addidas</a></li>
+                        </ul>
+                </div>
+				
+				<br><br><br>
+				
+					 <form >
+    <input type="text" ng-model="productname" placeholder=" Enter product Name">
+                      <br><br><br>
+       <input type="text" ng-model="storeName" placeholder="Enter Store Name">
+                    <br><br><br>
+         <input type="email" ng-model="shipingAddress" placeholder="Enter shipingAddress">
+                    <br><br><br>
+					<input type="requiredAmount" ng-model="email" placeholder="Enter requiredAmount">
+					<br><br><br>
+             <input type="submit" ng-click="buy product()" value="buy">
+                    <br><br>
+                     </form>
+				
+            </div>
+        </div>
+            
+            
+        
+        
+        <script src="JQuery/jquery-3.3.1.min.js"></script>
+        <script src="JQuery/script.js"></script>
+    </body>
+</html>

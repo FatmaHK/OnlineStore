@@ -3,10 +3,12 @@ import java.util.*;
 
 import javax.persistence.*;
 
+
 /**
  * 
  */
 @Entity
+@Table(name = "product")
 public class Product {
 
     private Integer id;
@@ -65,6 +67,5 @@ public class Product {
 	public void setStoreProducts(Set<StoreProduct> storeProducts) {
 		this.storeProducts = storeProducts;
 	}
-	
 
 }

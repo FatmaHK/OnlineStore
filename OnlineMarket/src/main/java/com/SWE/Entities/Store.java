@@ -18,23 +18,27 @@ public class Store {
     private int numberOfVisitors;
     private int numberOfBuyers;
     private Set<StoreProduct> storeProducts;
-    
-    
+//    @ManyToMany(mappedBy = "stores")
+    private Set<Statistic> statistics;
+//    
     
 
 	public Store() {
     }
-public Store(Integer id, String name, String type, String ownerName, String location, boolean isAccepted) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.type = type;
-		this.ownerName = ownerName;
-		this.location = location;
-		this.isAccepted = isAccepted;
-		storeProducts = new HashSet<StoreProduct>();
-	}
-
+	
+public Store(String name, String type, String ownerName, String location, boolean isAccepted, int numberOfVisitors,
+		int numberOfBuyers, Set<StoreProduct> storeProducts, Set<Statistic> statistics) {
+	super();
+	this.name = name;
+	this.type = type;
+	this.ownerName = ownerName;
+	this.location = location;
+	this.isAccepted = isAccepted;
+	this.numberOfVisitors = numberOfVisitors;
+	this.numberOfBuyers = numberOfBuyers;
+	this.storeProducts = storeProducts;
+	this.statistics = statistics;
+}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -95,5 +99,13 @@ public Store(Integer id, String name, String type, String ownerName, String loca
 	public void setStoreProducts(Set<StoreProduct> storeProducts) {
 		this.storeProducts = storeProducts;
 	}
-
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "store_statistics", joinColumns = @JoinColumn(name = "stat_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "store_id", referencedColumnName = "id"))
+	public Set<Statistic> getStatistics() {
+		return statistics;
+	}
+	public void setStatistics(Set<Statistic> statistics) {
+		this.statistics = statistics;
+	}
 }
