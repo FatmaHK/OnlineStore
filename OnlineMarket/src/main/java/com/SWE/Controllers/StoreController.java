@@ -74,4 +74,18 @@ public class StoreController {
 		return statistics;
 	}
 	
+	@GetMapping("/onlinemarket/addproduct-tostore/{store}/{product}")
+	public boolean acceptStore(Model model, @ModelAttribute StoreProduct newProduct) {
+		model.addAttribute("newProduct", new Store());	
+		storeProductRepo.save(newProduct);
+		return true;
+	}
+	
+	@GetMapping("/onlinemarket/add-collaborator/")
+	public boolean addCollaborator(Model model, @ModelAttribute StoreProduct newProduct) {
+		model.addAttribute("newProduct", new Store());	
+		storeProductRepo.save(newProduct);
+		return true;
+	}
+	
 }

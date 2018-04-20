@@ -18,6 +18,7 @@ public class Store {
     private int numberOfVisitors;
     private int numberOfBuyers;
     private Set<StoreProduct> storeProducts;
+    private Set<StoreBrand> storeBrands;
 //    @ManyToMany(mappedBy = "stores")
     private Set<Statistic> statistics;
 //    
@@ -27,7 +28,7 @@ public class Store {
     }
 	
 public Store(String name, String type, String ownerName, String location, boolean isAccepted, int numberOfVisitors,
-		int numberOfBuyers, Set<StoreProduct> storeProducts, Set<Statistic> statistics) {
+		int numberOfBuyers, Set<StoreProduct> storeProducts,Set<StoreBrand> storeBrands, Set<Statistic> statistics) {
 	super();
 	this.name = name;
 	this.type = type;
@@ -37,6 +38,7 @@ public Store(String name, String type, String ownerName, String location, boolea
 	this.numberOfVisitors = numberOfVisitors;
 	this.numberOfBuyers = numberOfBuyers;
 	this.storeProducts = storeProducts;
+	this.storeBrands = storeBrands;
 	this.statistics = statistics;
 }
 
@@ -98,6 +100,15 @@ public Store(String name, String type, String ownerName, String location, boolea
 
 	public void setStoreProducts(Set<StoreProduct> storeProducts) {
 		this.storeProducts = storeProducts;
+	}
+	
+	@OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
+	public Set<StoreBrand> getStoreBrands() {
+		return storeBrands;
+	}
+
+	public void setStoreBrands(Set<StoreBrand> storeBrands) {
+		this.storeBrands = storeBrands;
 	}
 	
 	@ManyToMany(cascade = CascadeType.ALL)

@@ -24,5 +24,4 @@ public class minSoldProduct extends StatisticsCommand{
 		ArrayList<Integer> products= spRepo.findMinByStore_id(s);
 		return products.get(0);
 	}
-	
 }

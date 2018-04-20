@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -16,6 +17,7 @@ public class Brand {
     private String name;
     private Integer id;
     private String category;
+    private Set<StoreBrand> storeBrands;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,5 +40,12 @@ public class Brand {
 	public void setCategory(String category) {
 		this.category = category;
 
+	}
+	@OneToMany(mappedBy = "brand")
+	public Set<StoreBrand> getStoreBrands() {
+		return storeBrands;
+	}
+	public void setStoreBrands(Set<StoreBrand> storeBrands) {
+		this.storeBrands = storeBrands;
 	}
 }
