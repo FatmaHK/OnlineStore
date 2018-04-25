@@ -12,7 +12,7 @@ app.controller('myCtrl', function($scope, $http) {
             location.href = "Home.html";
             }, function errorCallback(response) {
                 //alert(data.name + data.email + data.username + data.password + data.type);
-                location.href = "Home.html";
+                location.href = "SelectYourType.html";
             });
       };
 
@@ -26,7 +26,6 @@ app.controller('myCtrl', function($scope, $http) {
         }).then(function mySuccess(response) {
             location.href = "Home.html";
         }, function myError(response) {
-            alert(JSON.stringify({ data: response.data }));
             location.href = "SelectYourType.html";
         });
     };

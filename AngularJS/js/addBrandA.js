@@ -1,6 +1,6 @@
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
-     $scope.signup = function() {
+var app = angular.module('myApp2', []);
+app.controller('myCtrl2', function($scope, $http) {
+     $scope.addbrand = function() {
         var data={brandName: $scope.brandName , brandCategory:$scope.brandCategory,type:"Admin"};
         $http({
             method: 'GET',
@@ -12,4 +12,4 @@ app.controller('myCtrl', function($scope, $http) {
                 alert("try again");
             });
       };
-}
+});
