@@ -21,12 +21,16 @@ import com.SWE.Entities.User;
 import com.SWE.Repositories.ProductRepository;
 import com.SWE.Repositories.StoreProductRepo;
 import com.SWE.Repositories.StoreRepository;
+import com.SWE.Repositories.UserRepository;
 
 @CrossOrigin(origins = "*")
 @RestController
 public class StoreController {
 	@Autowired
 	private StoreRepository storeRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Autowired
 	private StoreProductRepo storeProductRepo;
@@ -43,9 +47,29 @@ public class StoreController {
 	@GetMapping("/onlinemarket/addstore/accept-request")
 	public boolean acceptStore(Model model, @ModelAttribute Store newStore) {
 		model.addAttribute("newStore", new Store());
-		newStore.setIsAccepted(true);	
-		storeRepository.save(newStore);
+		Store s = storeRepository.findByName(newStore.getName());
+		s.setIsAccepted(true);	
+		storeRepository.save(s);
 		return true;
+	}
+	
+	@GetMapping("/onlinemarket/addstore/reject-request")
+	public boolean rejectStore(Model model, @ModelAttribute Store newStore) {
+		model.addAttribute("newStore", new Store());
+		Store s = storeRepository.findByName(newStore.getName());
+		storeRepository.delete(s);
+		return true;
+	}
+	
+	@GetMapping("/onlinemarket/addstore/get-all-request")
+	public ArrayList<Store> getAllStoresRequests() {
+		ArrayList<Store> stores = new ArrayList<>();
+		for(Store s: storeRepository.findAll()) {
+			if(s.getIsAccepted() == false) {
+				stores.add(s);
+			}
+		}
+		return stores;
 	}
 	
 	public Store getStore(String sName) {
@@ -82,10 +106,16 @@ public class StoreController {
 	}
 	
 	@GetMapping("/onlinemarket/add-collaborator/")
-	public boolean addCollaborator(Model model, @ModelAttribute StoreProduct newProduct) {
-		model.addAttribute("newProduct", new Store());	
-		storeProductRepo.save(newProduct);
-		return true;
+	public boolean addCollaborator( @PathParam(value = "email") String email, @PathParam(value = "sName") String sName) {
+		System.out.println(email);
+		User newCollaborator = userRepository.findByEmail(email);
+		Store store = storeRepository.findByName(sName);
+		store.getUsers().add(newCollaborator);
+		if(newCollaborator != null) {
+			storeRepository.save(store);
+			return true;
+		}
+		return false;
 	}
 	
 }

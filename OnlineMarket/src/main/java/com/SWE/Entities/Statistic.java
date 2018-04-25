@@ -12,17 +12,19 @@ public class Statistic {
 	private String name;
 	private String description;
 	private boolean enabled;
+	private String entityType;
 	private Set<Store> stores;
 	
 	public Statistic() {
 		
 	}
 	
-public Statistic(String name, String description, boolean enabled, Set<Store> stores) {
+public Statistic(String name, String description, boolean enabled, String entityType, Set<Store> stores) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.enabled = enabled;
+		this.entityType = entityType;
 		this.stores = stores;
 	}
 
@@ -52,7 +54,14 @@ public Statistic(String name, String description, boolean enabled, Set<Store> st
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
+	public String getEntityType() {
+		return entityType;
+	}
+
+	public void setEntityType(String entityType) {
+		this.entityType = entityType;
+	}
+
 	@ManyToMany(mappedBy = "statistics")
 	public Set<Store> getStores() {
 		return stores;

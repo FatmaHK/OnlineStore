@@ -11,9 +11,9 @@ import com.SWE.Entities.Store;
 import com.SWE.Entities.StoreProduct;
 
 public interface StoreBrandRepo extends JpaRepository<StoreProduct, Integer>{
-	@Query("select sb.brand.id from StoreBrand sb where sb.store = ?1 order by sb.numberOfSoldItems desc")
-    ArrayList<Integer> findMaxByStore_id(Store s);
+	@Query("select sb.brand.name from StoreBrand sb where sb.store = ?1 order by sb.numberOfSoldItems desc")
+    ArrayList<String> findMaxByStore_id(Store s);
 	
-	@Query("select sb.brand.id from StoreBrand sb where sb.store = ?1 order by sb.numberOfSoldItems asc")
-    ArrayList<Integer> findMinByStore_id(Store s);
+	@Query("select sb.brand.name from StoreBrand sb where sb.store = ?1 order by sb.numberOfSoldItems asc")
+    ArrayList<String> findMinByStore_id(Store s);
 }

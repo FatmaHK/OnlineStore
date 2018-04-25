@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.SWE.Entities.Brand;
+import com.SWE.Entities.Product;
+import com.SWE.Entities.StatResult;
 import com.SWE.Entities.Store;
 import com.SWE.Repositories.StoreBrandRepo;
 import com.SWE.Repositories.StoreProductRepo;
@@ -19,13 +22,26 @@ public class maxSoldBrand extends StatisticsCommand{
 	
 	@Autowired
 	StoreBrandRepo sbRepo;
+
+	public maxSoldBrand(StoreBrandRepo sbRepo2) {
+		super();
+		this.sbRepo = sbRepo2;
+		commandName = "Maximum sold brand";
+	}
+
+
 	@Override
-	@GetMapping("/onlinemarket/getMaxSoldBrand/{store_id}")
-	public int execute(@PathVariable int store_id) {
+	public StatResult execute(int store_id) {
 		Store s= new Store();
 		s.setId(store_id);
-		ArrayList<Integer> brands= sbRepo.findMaxByStore_id(s);
-		return brands.get(0);
+		ArrayList<String> brands= sbRepo.findMaxByStore_id(s);
+		BrandController bc = new BrandController();
+		StatResult res = new StatResult();
+		res.statName = commandName;
+		res.statEntity = brands.get(0);
+//		Brand b = bc.getBrandByID(res.entityID);
+//		res.statEntity = b.getName();
+		return res;
 	}
 	
 }

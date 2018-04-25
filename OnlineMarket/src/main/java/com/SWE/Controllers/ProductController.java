@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +20,7 @@ import com.SWE.Entities.Store;
 import com.SWE.Entities.StoreProduct;
 import com.SWE.Repositories.ProductRepository;
 import com.SWE.Repositories.StoreProductRepo;
+import com.SWE.Repositories.StoreRepository;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -25,6 +28,9 @@ public class ProductController {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private StoreRepository storeRepository;
 	
 	@Autowired
 	private StoreProductRepo spRepo;
@@ -48,12 +54,19 @@ public class ProductController {
         return null;
 	}
 	
-	@GetMapping("/onlinemarket/buyproduct")
-	public boolean buyProduct(@PathVariable int sID, @PathVariable int pID, @PathVariable int requiredAmount) {
-		Store s = new Store();
-		Product p = new Product();
-		s.setId(sID);
-		p.setId(pID);
+	public Product getProductByID(int id) {
+		for(Product p : productRepository.findAll())
+        {
+            if(p.getId() == id)
+            	return p;
+        }
+        return null;
+	}
+	
+	@GetMapping("/onlinemarket/buyproduct/")
+	public boolean buyProduct(@PathParam(value = "sName") String sName, @PathParam(value = "pName") String pName, @PathParam(value = "requiredAmount") int requiredAmount) {
+		Store s = storeRepository.findByName(sName);
+		Product p = productRepository.findByName(pName);
 		StoreProduct storeProduct = new StoreProduct();
 		storeProduct.setStore(s);
 		storeProduct.setProduct(p);
@@ -61,7 +74,7 @@ public class ProductController {
 			if(sp.getStore().getId()== storeProduct.getStore().getId() && sp.getProduct().getId() == storeProduct.getProduct().getId() &&
 				sp.getQuantity()>= requiredAmount) {
 				sp.setQuantity(sp.getQuantity() - requiredAmount);
-				sp.setNumberOfSoldItems(sp.getNumberOfSoldItems() + 1);
+				sp.setNumberOfSoldItems(sp.getNumberOfSoldItems() + requiredAmount);
 				spRepo.save(sp);
 				System.out.println("Success! ");
 				return true;

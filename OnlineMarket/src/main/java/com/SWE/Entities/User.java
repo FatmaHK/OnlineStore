@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 
 @Entity
@@ -11,22 +12,25 @@ public class User {
 
     public User() {
     }
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     private String name;
 	private String username;
     private String email;
     private String password;
     private String type;
-    public User(String name, String username, String email, String passowrd, String type) {
+    private Set<Store> stores;
+    
+    public User(String name, String username, String email, String passowrd, String type, Set<Store> stores) {
 		super();
 		this.name = name;
 		this.username = username;
 		this.email = email;
 		this.password = passowrd;
 		this.type = type;
+		this.stores = stores;
 	}
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}
@@ -62,6 +66,13 @@ public class User {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	@ManyToMany(mappedBy = "users")
+	public Set<Store> getStores() {
+		return stores;
+	}
+	public void setStores(Set<Store> stores) {
+		this.stores = stores;
 	}
 
 }

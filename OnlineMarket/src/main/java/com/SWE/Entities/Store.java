@@ -19,16 +19,16 @@ public class Store {
     private int numberOfBuyers;
     private Set<StoreProduct> storeProducts;
     private Set<StoreBrand> storeBrands;
-//    @ManyToMany(mappedBy = "stores")
     private Set<Statistic> statistics;
-//    
+    private Set<User> users;
     
 
 	public Store() {
     }
 	
 public Store(String name, String type, String ownerName, String location, boolean isAccepted, int numberOfVisitors,
-		int numberOfBuyers, Set<StoreProduct> storeProducts,Set<StoreBrand> storeBrands, Set<Statistic> statistics) {
+		int numberOfBuyers, Set<StoreProduct> storeProducts,Set<StoreBrand> storeBrands, Set<Statistic> statistics,
+		Set<User> users) {
 	super();
 	this.name = name;
 	this.type = type;
@@ -40,6 +40,7 @@ public Store(String name, String type, String ownerName, String location, boolea
 	this.storeProducts = storeProducts;
 	this.storeBrands = storeBrands;
 	this.statistics = statistics;
+	this.users = users;
 }
 
 	@Id
@@ -118,5 +119,14 @@ public Store(String name, String type, String ownerName, String location, boolea
 	}
 	public void setStatistics(Set<Statistic> statistics) {
 		this.statistics = statistics;
+	}
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "store_collaboratores", joinColumns = @JoinColumn(name = "store_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "collaborator_id", referencedColumnName = "id"))
+	public Set<User> getUsers() {
+		return users;
+	}
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
 }

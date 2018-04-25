@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.SWE.Entities.Product;
+import com.SWE.Entities.StatResult;
 import com.SWE.Entities.Store;
 import com.SWE.Repositories.StoreProductRepo;
 
@@ -16,16 +18,31 @@ import com.SWE.Repositories.StoreProductRepo;
 @RestController
 public class maxSoldProduct extends StatisticsCommand{
 	
-	@Autowired
-	StoreProductRepo spRepo;
+	private StoreProductRepo spRepo;
+	
+	public maxSoldProduct(StoreProductRepo spRepo) {
+		super();
+		this.spRepo = spRepo;
+		commandName = "Maximum sold product";
+	}
+
 	@Override
-	@GetMapping("/onlinemarket/getMaxSoldProduct/{store_id}")
-	public int execute(@PathVariable int store_id) {
+	public StatResult execute(int store_id) {
 		Store s= new Store();
 		s.setId(store_id);
-		ArrayList<Integer> products= spRepo.findByStore_id(s);
-		return products.get(0);
+		ArrayList<String> products= spRepo.findByStore_id(s);
+		if(products != null) {
+			ProductController pc = new ProductController();
+			StatResult res = new StatResult();
+			res.statName = commandName;
+			res.statEntity = products.get(0);
+//			Product p = pc.getProductByID(res.entityID);
+//			res.statEntity = p.getName();
+			return res;
+		}
+		return null;
 	}
+
 	
 }
 

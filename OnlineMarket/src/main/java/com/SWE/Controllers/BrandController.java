@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SWE.Entities.Brand;
+import com.SWE.Entities.Product;
 import com.SWE.Repositories.BrandRepository;
 
 @CrossOrigin(origins = "*")
@@ -22,5 +23,14 @@ public class BrandController {
 	public void addBrand(Model model, @ModelAttribute Brand newBrand) {
 		model.addAttribute("newBrand", new Brand());
 		brandRepository.save(newBrand);
+	}
+	
+	public Brand getBrandByID(int id) {
+		for(Brand b : brandRepository.findAll())
+        {
+            if(b.getId() == id)
+            	return b;
+        }
+        return null;
 	}
 }
