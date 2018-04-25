@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,14 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.SWE.Entities.User;
 import com.SWE.Repositories.UserRepository;
 
-@CrossOrigin(origins = "*")
 @RestController
+//@RequestMapping("/")
 public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
 	
     @GetMapping("/onlinemarket/signup")
+   // @CrossOrigin(origins = "*")
     public User register(Model model, @ModelAttribute User newUser){
     	model.addAttribute("newUser", new User());
     	userRepository.save(newUser);

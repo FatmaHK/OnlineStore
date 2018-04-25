@@ -7,12 +7,12 @@ app.controller('myCtrl', function($scope, $http) {
             method: 'GET',
             url: 'http://localhost:8080/onlinemarket/signup',
             params: data
-          }).then(function successCallback(response) {
+          }).then(function (response) {
               alert("LLLLLLLLLL");
-            location.href = "Home.html";
+            //location.href = "Home.html";
             }, function errorCallback(response) {
                 //alert(data.name + data.email + data.username + data.password + data.type);
-                location.href = "SelectYourType.html";
+                //location.href = "SelectYourType.html";
             });
       };
 
