@@ -19,16 +19,16 @@ public class Store {
     private int numberOfBuyers;
     private Set<StoreProduct> storeProducts;
     private Set<StoreBrand> storeBrands;
+    private Set<StoreActions> storeActions;
     private Set<Statistic> statistics;
     private Set<User> users;
-    
 
 	public Store() {
     }
 	
 public Store(String name, String type, String ownerName, String location, boolean isAccepted, int numberOfVisitors,
-		int numberOfBuyers, Set<StoreProduct> storeProducts,Set<StoreBrand> storeBrands, Set<Statistic> statistics,
-		Set<User> users) {
+		int numberOfBuyers, Set<StoreProduct> storeProducts,Set<StoreBrand> storeBrands, Set<StoreActions> storeActions, Set<Statistic> statistics,
+		Set<User> users, Set<StoreAction> actions) {
 	super();
 	this.name = name;
 	this.type = type;
@@ -41,6 +41,7 @@ public Store(String name, String type, String ownerName, String location, boolea
 	this.storeBrands = storeBrands;
 	this.statistics = statistics;
 	this.users = users;
+	this.storeActions = storeActions;
 }
 
 	@Id
@@ -112,6 +113,15 @@ public Store(String name, String type, String ownerName, String location, boolea
 		this.storeBrands = storeBrands;
 	}
 	
+	@OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
+	public Set<StoreActions> getStoreActions() {
+		return storeActions;
+	}
+
+	public void setStoreActions(Set<StoreActions> storeActions) {
+		this.storeActions = storeActions;
+	}
+	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "store_statistics", joinColumns = @JoinColumn(name = "stat_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "store_id", referencedColumnName = "id"))
 	public Set<Statistic> getStatistics() {
@@ -129,4 +139,14 @@ public Store(String name, String type, String ownerName, String location, boolea
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
+	
+//	@ManyToMany(cascade = CascadeType.ALL)
+//	@JoinTable(name = "store_actions", joinColumns = @JoinColumn(name = "action_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "store_id", referencedColumnName = "id"))	
+//	public Set<StoreAction> getActions() {
+//		return actions;
+//	}
+//
+//	public void setActions(Set<StoreAction> actions) {
+//		this.actions = actions;
+//	}
 }
