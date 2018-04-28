@@ -56,16 +56,16 @@ public class StatisticsPanelController {
 		
 	}
 	
-	@GetMapping("/onlinemarket/addStatistics/")
-	public void addStatistics(@PathParam(value = "statname") String statname) {
+	@GetMapping("/onlinemarket/addStatistics/{statname}")
+	public void addStatistics(@PathVariable String statname) {
 		StatisticsCommand.statRepo = statRepo;
 		StatisticsCommand.enableStatistics(statname);
 //		newStat.setStores(null);
 //		return newStat;
 	}
 	
-	@GetMapping("/onlinemarket/removeStatistics/")
-	public void removeStatistics(@PathParam(value = "statname") String statname) {
+	@GetMapping("/onlinemarket/removeStatistics/{statname}")
+	public void removeStatistics(@PathVariable String statname) {
 		StatisticsCommand.statRepo = statRepo;
 		StatisticsCommand.disableStatistics(statname);
 //		stat.setStores(null);

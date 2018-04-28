@@ -18,8 +18,10 @@ public class Product {
     private String brand;
     private int quantity;
     private Set<StoreProduct> storeProducts;
+    private Set<UserProduct> userProducts;
     
     public Product() {
+    	name="";
     }
     
     @Id
@@ -66,6 +68,14 @@ public class Product {
 	}
 	public void setStoreProducts(Set<StoreProduct> storeProducts) {
 		this.storeProducts = storeProducts;
+	}
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+	public Set<UserProduct> getTransactions() {
+		return userProducts;
+	}
+
+	public void setTransactions(Set<UserProduct> userProducts) {
+		this.userProducts = userProducts;
 	}
 
 }

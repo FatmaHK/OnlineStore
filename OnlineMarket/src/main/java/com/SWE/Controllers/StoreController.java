@@ -274,6 +274,16 @@ public class StoreController {
 		return sa;
 	}
 	
+	@GetMapping("/onlinemarket/undo/{sId}/{aId}")
+	public void undoAction(@PathVariable int sId, @PathVariable int aId) {
+		for(StoreActions a: saRepository.findAll()) {
+			if(a.getStore().getId() == sId && a.getAction().getId() == aId) {
+				saRepository.delete(a);
+			}
+		}
+	}
+	
+	
 	public ProductRepository getProductRepo() {
 		return productRepo;
 	}
