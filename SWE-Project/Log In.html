@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log In Form</title>
+        <script src="js/connect.js" type="text/javascript"></script>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="SignIn">
+            <div class="navbar">
+                <div class="container">
+                    <div class="logo">
+                        <h1>Company</h1>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li class="active"><a href="Home.html"> Home</a></li>
+                            <li><a href="Log%20In.html">Sign In</a></li>
+                            <li><a href="SignUp.html">Sign Up</a></li>
+                            <li><a href="SelectYourType.html">Select your Type</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="Form1">
+                <form action="signin.php" method="get">
+                    <h2>Please Sign In</h2>
+                    <input type="text" placeholder="Enter your name" name="username">
+                    <br><br>
+                    <input type="password" placeholder="Enter your password" name="password">
+                    <br><br>
+                    <input type="checkbox" name="Remember me" value="Remember password" class="checkbox" >Remember me
+                    <br><br>
+                    <input type="submit" value="Sign in" class="signin">
+                    <br><br>
+                    <a> <input type="button" value="Sign up" class="signup"></a>
+                </form>
+				<p name="error"></p>
+            </div>
+        </div>
+        
+        <script src="JQuery/jquery-3.3.1.min.js"></script>
+        <script src="JQuery/script.js"></script>
+    </body>
+</html>
