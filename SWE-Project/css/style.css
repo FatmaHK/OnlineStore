@@ -1,0 +1,857 @@
+/*start concepts*/
+html,body{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6,p{
+    padding: 0;
+    margin: 0;
+}
+a
+{
+    text-decoration: none;
+}
+ul
+{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/*end concepts*/
+
+form.buy{
+	margin-left: 100px;
+}
+
+/*start global*/
+.container{
+    width: 85%;
+    margin: 0 auto;
+}
+/*end global*/
+
+
+
+/*start header*/
+.requestList{
+	font-size: 20px;
+	margin-left: 25px;
+    margin-top: 25px;
+    padding: 5px;
+}
+.head{
+    background-image: url(..//photos/Shop-Online-Background.jpg);
+}
+.head .navbar {
+    padding: 20px 0;
+    height: 4vh;
+}
+.head .navbar .logo{
+    float: left;
+    width: 20%;
+}
+.head .navbar .logo h1 {
+    font-size: 35px;
+    color: #f7f8f9eb;
+    font-family: cursive;
+}
+.head .navbar .links{
+    float: left;
+    width: 65%;
+    margin: 15px;
+}
+.head .navbar .links ul{
+    float: right;
+}
+.head .navbar .links ul li{
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+}
+.head .navbar .links ul li a{
+    color: #f4f6f9;
+    font-family: unset;
+    font-size: 20px;
+}
+.head .navbar .links ul li.active{
+    background-color: #cdd2d4;
+    border-radius: 10px;
+}
+.head .header {
+    margin-left: 80px;
+    margin-top: 135px;
+}
+.head .header h2 {
+    color: #d8d5d1;
+    font-size: 50px;
+}
+.head .header p {
+    color: #d8d5d1;
+    font-size: 25px;
+    padding: 20px;
+    margin-left: 250px;
+}
+/*end header*/
+
+
+
+
+
+
+
+
+/*start sign In*/
+.SignIn{
+    background-color: antiquewhite;
+}
+.SignIn .navbar {
+    padding: 20px 0;
+    height: 8vh;
+    background-color: #bfe8d7;
+}
+.SignIn .navbar .logo{
+    float: left;
+    width: 20%;
+}
+.SignIn .navbar .logo h1 {
+    font-size: 35px;
+    color: #3172b3eb;
+    font-family: cursive;
+}
+.SignIn .navbar .links{
+    float: left;
+    width: 65%;
+    margin: 15px;
+}
+.SignIn .navbar .links ul{
+    float: right;
+}
+.SignIn .navbar .links ul li{
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+}
+.SignIn .navbar .links ul li a{
+    color: #2265ca;
+    font-family: unset;
+    font-size: 20px;
+}
+.SignIn .navbar .links ul li.active{
+    background-color: #cdd2d4;
+    border-radius: 10px;
+}
+
+.SignIn .Form1{
+    margin-top: 50px;
+}
+.SignIn .Form1 h2 {
+    color: #3e3eb9;
+    text-align: center;
+    font-size: 40px;
+}
+.SignIn .Form1 input {
+    margin-left: 597px;
+    margin-top: 15px;
+    padding: 8px;
+    width: 180px;
+}
+.SignIn .Form1 .checkbox{
+    width: 15px;
+}
+.SignIn .Form1 .signin {
+    background-color: #bfe8d7;
+    font-size: 25px;
+    color: #1d1d86;
+}
+.SignIn .Form1 .signup{
+    background-color: #bfe8d7;
+    font-size: 25px;
+    color: #1d1d86;
+}
+/*end sign In*/
+
+
+
+
+
+/*start sign Up*/
+.SignUp{
+    background-color: antiquewhite;
+}
+.SignUp .navbar {
+    padding: 20px 0;
+    height: 8vh;
+    background-color: #bfe8d7;
+}
+.SignUp .navbar .logo{
+    float: left;
+    width: 20%;
+}
+.SignUp .navbar .logo h1 {
+    font-size: 35px;
+    color: #3172b3eb;
+    font-family: cursive;
+}
+.SignUp .navbar .links{
+    float: left;
+    width: 65%;
+    margin: 15px;
+}
+.SignUp .navbar .links ul{
+    float: right;
+}
+.SignUp .navbar .links ul li{
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+}
+.SignUp .navbar .links ul li a{
+    color: #2265ca;
+    font-family: unset;
+    font-size: 20px;
+}
+.SignUp .navbar .links ul li.active{
+    background-color: #cdd2d4;
+    border-radius: 10px;
+}
+.SignUp .Form2 {
+    margin-top: 125px;
+}
+h1#h2 {
+    color: #3e3eb9;
+    text-align: center;
+    font-size: 45px;
+    position: absolute;
+    margin-left: 600px;
+    margin-top: 85px;
+}
+
+.SignUp .Form2 input {
+    margin-left: 597px;
+    margin-top: -5px;
+    padding: 8px;
+    width: 180px;
+}
+select#type {
+    margin-top: -2px;
+}
+
+input.btn {
+    background-color: #bfe8d7;
+    font-size: 25px;
+    color: #1d1d86;
+}
+/*end sign Up*/
+
+
+
+
+/*start select */
+.select{
+    background-color: antiquewhite;
+}
+.select .navbar {
+    padding: 20px 0;
+    height: 8vh;
+    background-color: #bfe8d7;
+}
+.select .navbar .logo{
+    float: left;
+    width: 20%;
+}
+.select .navbar .logo h1 {
+    font-size: 35px;
+    color: #3172b3eb;
+    font-family: cursive;
+}
+.select .navbar .links{
+    float: left;
+    width: 65%;
+    margin: 15px;
+}
+.select .navbar .links ul{
+    float: right;
+}
+.select .navbar .links ul li{
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+}
+.select .navbar .links ul li a{
+    color: #2265ca;
+    font-family: unset;
+    font-size: 20px;
+}
+.select .navbar .links ul li.active{
+    background-color: #cdd2d4;
+    border-radius: 10px;
+}
+.select .select1 {
+    margin-top: 100px;
+    margin-left: 240px;
+}
+.select .select1 h1 {
+    font-size: 45px;
+    color: #6c6c91;
+    padding-bottom: 35px;
+}
+.select .select1 ul {
+    list-style: disc;
+    margin-left: 80px;
+}
+.select .select1 ul li {
+    font-size: 30px;
+    padding: 8px;
+    color: #4b4b99;
+}
+/*end select*/
+
+
+
+
+/*start admin*/
+.Admin{
+    background-color: antiquewhite;
+}
+.Admin .navbar {
+    padding: 20px 0;
+    height: 8vh;
+    background-color: #bfe8d7;
+}
+.Admin .navbar .logo{
+    float: left;
+    width: 20%;
+}
+.Admin .navbar .logo h1 {
+    font-size: 35px;
+    color: #3172b3eb;
+    font-family: cursive;
+    margin-top: -35px;
+}
+.Admin .navbar .links{
+    float: left;
+    width: 65%;
+    margin: 15px;
+}
+.Admin .navbar .links ul{
+    float: right;
+}
+.Admin .navbar .links ul li{
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+}
+.Admin .navbar .links ul li a{
+    color: #2265ca;
+    font-family: unset;
+    font-size: 20px;
+}
+.Admin .navbar .links ul li.active{
+    background-color: #cdd2d4;
+    border-radius: 10px;
+}
+.admin{
+    background-color: antiquewhite;
+    height: 200vh;
+}
+.admin h1 {
+    font-size: 35px;
+    margin-left: 50px;
+    padding-top: 40px;
+    color: #8e88aa;
+}
+.admin .row{
+    margin-left: 50px;
+    margin-top: 65px;
+    width: 230px;
+    height: 400px;
+    display: inline-flex
+}
+.admin .row .col {
+    border: 2px solid #e3e3e3;
+    padding: 75px;
+}
+.admin .row .col h2 {
+    color: #5668c0;
+    padding: 10px;
+    font-size: 25px;
+}
+.admin .row .col h3 {
+    color: #5668c0;
+    padding: 10px;
+    font-size: 25px;
+    position: absolute;
+    margin-left: -15px;
+    margin-top: -4px;
+}
+select {
+    margin-top: 65px;
+}
+input[type="submit"] {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 15px;
+    margin-top: 36px;
+}
+.admin .row .col .buttonProduct {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+    margin-top: 15px;
+}
+.admin .row .col .buttonStore {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+    margin-top: 35px;
+}
+.admin .row .col .buttonBrand {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+    margin-top: 93px;
+}
+.admin .row .col .buttonState {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+    margin-top: 235px;
+}
+.row1 {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 350px;
+}
+.col1 {
+    border: 2px solid #d7d7f5;
+    padding: 75px;
+}
+h3 {
+    color: #5668c0;
+    padding: 10px;
+    font-size: 25px;
+    position: absolute;
+    margin-left: -25px;
+    margin-top: -40px;
+}
+button.buttonRequest {
+    width: 100px;
+    margin-left: 25px;
+    margin-top: 70px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+}
+/*end admin*/
+
+
+
+
+
+
+
+/*start adminRequest*/
+.row3 {
+    margin-top: 55px;
+    margin-left: 105px;
+}
+.btnAccept {
+    width: 100px;
+    margin-left: 5px;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: #7685e7;
+    border-bottom: none;
+    color: #fdfdfd;
+    font-size: 20px;
+}
+.btnDelet {
+    width: 100px;
+    margin-left: 25px;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: #7685e7;
+    border-bottom: none;
+    color: #fdfdfd;
+    font-size: 20px;
+}
+/*end adminRequest*/
+
+
+
+
+
+
+
+/*start store owner*/
+.Store{
+    background-color: antiquewhite;
+    height: 300vh;
+    background-size: cover;
+}
+.store {
+    background-color: antiquewhite;
+}
+.Store .navbar {
+    padding: 20px 0;
+    height: 8vh;
+    background-color: #bfe8d7;
+}
+.Store .navbar .logo{
+    float: left;
+    width: 20%;
+}
+.Store .navbar .logo h1 {
+    font-size: 35px;
+    color: #3172b3eb;
+    font-family: cursive;
+}
+.Store .navbar .links{
+    float: left;
+    width: 65%;
+    margin: 15px;
+}
+.Store .navbar .links ul{
+    float: right;
+}
+.Store .navbar .links ul li{
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+}
+.Store .navbar .links ul li a{
+    color: #2265ca;
+    font-family: unset;
+    font-size: 20px;
+}
+.Store .navbar .links ul li.active{
+    background-color: #cdd2d4;
+    border-radius: 10px;
+}
+.store h1 {
+    font-size: 35px;
+    margin-left: 50px;
+    padding-top: 40px;
+    color: #8e88aa;
+}
+.Store .store .row{
+    margin-left: 50px;
+    margin-top: 65px;
+    width: 230px;
+    height: 400px;
+    display: inline-flex
+}
+.Store .store .row .col {
+    border: 2px solid #e3e3e3;
+    padding: 83px;
+}
+.Store .store .row .col h2 {
+    color: #5668c0;
+    padding: 10px;
+    font-size: 25px;
+    position: absolute;
+    margin-top: -50px;
+}
+.Store .store .row .col h3 {
+    color: #5668c0;
+    padding: 10px;
+    font-size: 25px;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: -32px;
+}
+.Store .store .row .col .buttonProduct {
+    width: 100px;
+    margin-left: -50px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+}
+.Store .store .row1 .col1 .buttonProduct {
+    width: 100px;
+    margin-left: 21px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+}
+.Store .store .row .col .buttonStore {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+    margin-top: 40px;
+}
+.Store .store .row .col .buttonCollaborator {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+    margin-top: 195px;
+}
+.Store .store .row .col .Undo {
+    width: 100px;
+    margin-left: 0px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+}
+.Store .store .row .col .buttonEdit{
+    width: 100px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+}
+.Store .store .row .col .buttonDelete{
+    width: 100px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+}
+
+
+.Store .store .row1 {
+    margin-left: 50px;
+    margin-top: 40px;
+    width: 258px;
+    height: 400px;
+    display: -webkit-box;
+}
+.Store .store .row1 .col1{
+    border: 2px solid #e3e3e3;
+    padding: 75px;
+}
+.Store .store .row1 .col1 h3 {
+    color: #5668c0;
+    padding: 10px;
+    font-size: 25px;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: -32px;
+}
+.Store .store .row1 .col1 .Undo {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+    margin-top: 15px;
+}
+.Store .store .row1 .col1 .buttonEdit{
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+}
+.Store .store .row1 .col1 .buttonDelete {
+    width: 100px;
+    margin-left: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    border-bottom: none;
+    color: #46b0ac;
+    font-size: 20px;
+    margin-top: 175px;
+}
+/*end store owner*/
+
+
+
+
+
+/*start buyer*/
+.Buy{
+    background-image: url(../photos/Shop-Online-Background.jpg);
+    background-size: cover;
+}
+.Buy .navbar {
+    padding: 20px 0;
+    height: 4vh;
+}
+.Buy .navbar .logo{
+    float: left;
+    width: 20%;
+}
+.Buy .navbar .logo h1 {
+    font-size: 35px;
+    color: #f2f2f2eb;
+    font-family: cursive;
+}
+.Buy .navbar .links{
+    float: left;
+    width: 65%;
+    margin: 15px;
+}
+.Buy .navbar .links ul{
+    float: right;
+}
+.Buy .navbar .links ul li{
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+}
+.Buy .navbar .links ul li a{
+    color: #f4f6f9;
+    font-family: unset;
+    font-size: 20px;
+}
+.Buy .navbar .links ul li.active{
+    background-color: #cdd2d4;
+    border-radius: 10px;
+}
+.Buy .buy h1 {
+    font-size: 35px;
+    margin-left: 20px;
+    padding-top: 60px;
+    color: #e2e2e4;
+}
+.Buy .buy .row{
+    margin-left: 50px;
+    margin-top: 100px;
+}
+.Buy .buy .row .col{
+    display: inline-block;
+    padding: 15px;
+}
+.Buy .buy .row .col button {
+    font-size: 20px;
+    width: 160px;
+    height: 40px;
+    background-color: beige;
+    color: #5252af;
+}
+.buy .sidebar1{
+    background-color:#eeebe7;
+    position: absolute;
+    left: 70px;
+    width: 10%;
+    text-align: center;
+    display: none;
+}
+.buy .sidebar1 li{
+    margin: 10px 0;
+    border-bottom: 1px solid black;
+}
+.buy .sidebar2{
+    background-color:#eeebe7;
+    position: absolute;
+    left: 240px;
+    width: 10%;
+    text-align: center;
+    display: none;
+}
+.buy .sidebar2 li{
+    margin: 20px 0;
+    border-bottom: 1px solid black;
+}
+.buy .sidebar3{
+    background-color:#eeebe7;
+    position: absolute;
+    left: 400px;
+    width: 10%;
+    text-align: center;
+    display: none;
+}
+.buy .sidebar3 li{
+    margin: 20px 0;
+    border-bottom: 1px solid black;
+}
+
+/*end buyer*/
+
+
+
+/*statistics page*/
+.select .phphead{
+    margin-top: 45px;
+} 
+.select .phphead h4 {
+    text-align: left;
+    margin-left: 80px;
+    font-size: 35px;
+    color: #39dfe8;
+}
+.select .phphead .tablephp {
+    margin-left: 50px;
+    border-collapse: collapse;
+    font-size: 20px;
+    background-color: #ececf3;
+}
+.select .phphead .tablephp tr td{
+    padding: 12px;
+    text-align: center;
+}
+.select .panel2 h3{
+    margin-left: 80px;
+    color: #39dfe8;
+    font-size: 35px;
+}
+.select .panel2 .table2{
+    margin-left: 50px;
+    border-collapse: collapse;
+    font-size: 20px;
+    background-color: #ececf3;
+}
+.select .panel2 .table2 tr td{
+    padding: 12px;
+    text-align: center;
+}
+/*end statestic page*/
+
+
+
+/*start invalid page*/
+.invaled {
+    margin-left: 500px;
+    margin-top: 200px;
+}
+h1.inv {
+    font-size: 35px;
+    color: #6767ca;
+}
+
+/*end invalid page*/
+
+
+

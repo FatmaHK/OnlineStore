@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Store Owner</title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="Store">
+            <div class="navbar">
+                <div class="container">
+                    <div class="logo">
+                        <h1>Company</h1>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li class="active"><a href="Home.html"> Home</a></li>
+                            <li><a href="Log%20In.html">Sign In</a></li>
+                            <li><a href="SignUp.html">Sign Up</a></li>
+                            <li><a href="SelectYourType.html">Select your Type</a></li>
+							<li><a href="displayHistory.php">Get history</a></li>
+							<li><a href="Log%20In.html">Logout</a></li>
+							
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="store">
+                <h1>Welcome to Store</h1>
+                <div class="row">
+					
+                    <div class="col">
+                        <h2>Add Store</h2>
+						<form action="AddStoreAdmin.php" method="get">
+                            <input type="text" name="name" required placeholder="Name Of Store">
+                            <br><br>
+                            <input type="text" name="type" required placeholder="Type Of Store">
+                            <br><br>
+                            <input type="text" name="ownerName" required placeholder="Owner Name">
+                            <br><br>
+                            <input type="text" name="location" required placeholder="Location">
+                            <br><br>
+							<input type="submit" value="ADD" class="buttonStore">	
+						</form>
+                    </div>
+					<div class="col">
+						<form action="AddCollaborates.php" method="get">
+							<h3>Add Collaborates</h3>
+							<input type="text" name="storename" required placeholder="Store name">
+							<br><br>
+							<input type="text" name="email" required placeholder="Collaborator email">
+							<br><br><br><br><br><br>
+							<button class="buttonStore"> ADD</button>
+						</form>
+                    </div>
+					<div class="col">
+						<form action="statistics.php" method="get">
+							<h2>Show Statistic</h2>
+							<input type="text" name="storename"  required placeholder="store name">
+							<button class="buttonStore">show</button>
+						</form>
+                    </div>
+					</div>
+                <div class="row1">
+                    <div class="col1">
+						<form action="addproductstoreowner.php" method="get">
+							<h3>Add Product</h3>
+							<input type="text" name="sname" required placeholder="Store name">
+							<br><br>
+							<input type="text" name="pname"  required placeholder="Name Of Product">
+							<br><br>
+							<input type="text" name="price" required placeholder="Price Of Product">
+							<br><br>
+							<input type="text" name="quantity" required placeholder="Quantity Of Product">
+							<br><br><br><br><br>
+							<input type="submit" class="buttonProduct" value="ADD">
+							<br>
+						</form>
+                    </div>
+                    <div class="col1">
+                        <form action="edit.php" method="get">
+							<h3>Edit Product</h3>
+							<input type="text" name="sname" required placeholder="Store name">
+							<br><br>
+							<input type="text" name="oldId" required placeholder="Old product id">
+							<br><br>
+							<input type="text" name="quantity"  required placeholder="New quantity">
+							<br><br>
+							<input type="text" name="price" required placeholder="New price">
+							<br><br><br><br><br>
+							<input type="submit" class="buttonProduct" value="Edit">
+							<br>
+						</form>
+                    </div>
+                    <div class="col1">
+                        <form action="deleteProduct.php" method="get">
+							<h3>Delete Product</h3>
+							<input type="text" name="sname" required placeholder="Store name">
+							<br><br>
+							<input type="text" name="pname" required placeholder="Name Of Product">
+							<br><br><br><br><br><br><br><br><br>
+							<input type="submit" class="buttonProduct" value="Delete">
+							<br>
+						</form>
+                    </div>
+                </div>
+				<div class="row1">
+                    <div class="col1">
+						<form action="addbrand.php" method="get">
+							<h3>Add Brand</h3>
+							<input type="text" name="sname" required placeholder="Store name">
+							<br><br>
+							<input type="text" name="bname"  required placeholder="Name Of Brand">
+							<br><br><br><br><br>
+							<br><br><br><br>
+							<input type="submit" class="buttonProduct" value="ADD">
+							<br>
+						</form>
+                    </div>
+                    <div class="col1">
+                        <form action="deletebrand.php" method="get">
+							<h3>Delete Brand</h3>
+							<input type="text" name="sname" required placeholder="Store name">
+							<br><br>
+							<input type="text" name="bname" required placeholder="Name Of Brand">
+							<br><br><br><br><br><br><br><br><br>
+							<input type="submit" class="buttonProduct" value="Delete">
+							<br>
+						</form>
+                    </div>
+                </div>
+                </div>
+				
+            </div>
+        </div>
+        
+        <script src="JQuery/jquery-3.3.1.min.js"></script>
+        <script src="JQuery/script.js"></script>
+    </body>
+</html>

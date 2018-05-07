@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Register Form</title>
+        <link href="index.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet">
+        
+    </head>
+
+    <body>
+        <div class="SignIn">
+            <div class="navbar">
+                <div class="container">
+                    <div class="logo">
+                        <h1>Company</h1>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li class="active">
+                                <a href="Home.html"> Home</a>
+                            </li>
+                            <li>
+                                <a href="Log%20In.html">Sign In</a>
+                            </li>
+                            <li>
+                                <a href="SignUp.html">Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="SelectYourType.html">Select your Type</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="SignUp">
+                <h1 id="h2">Sign Up</h1><br><br><br>
+               
+                <form action="signup.php" method="get" class="Form2">
+                    <input type="text" name="name" placeholder="Enter your name">
+                        <br><br><br>
+                    <input type="text" name="username" placeholder="Enter your username">
+                        <br><br><br>
+                    <input type="email" name="email" placeholder="Enter your e-mail">
+                        <br><br><br>
+                    <input type="password" name="password" placeholder="Enter your Password">
+                        <br><br><br>
+					<select name="type" id="type" style="position:absolute; left:600px">
+						<option placeholder="Select your type">Select your type</option>
+						<option value="buyer">Buyer</option>
+						<option value="Admin">Administrator</option>
+						<option value="Store owner">Store owner</option>
+						<option value="Collaborator">Collaborator</option>
+					</select><br><br>
+                    <a> <input type="submit" value="signup" class="btn"></a>
+                        <br><br>
+                </form>
+            </div>
+        </div>
+    </body>
+	
+	
+        <script src="JQuery/jquery-3.3.1.min.js"></script>
+        <script src="JQuery/script.js"></script>
+        
+</html>

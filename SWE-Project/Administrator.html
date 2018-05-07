@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Administrator</title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="Admin">
+            <div class="navbar">
+                <div class="container">
+                    <div class="logo">
+                        <h1>Company</h1>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li class="active"><a href="Home.html"> Home</a></li>
+                            <li><a href="Log%20In.html">Sign In</a></li>
+                            <li><a href="SignUp.html">Sign Up</a></li>
+                            <li><a href="SelectYourType.html">Select your Type</a></li>
+							<li><a href="Log%20In.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="admin">
+                <h1>Welcome to Store</h1>
+                <div class="row">
+                    <div class="col">
+                        <h2>Add Product</h2>
+						<form action="AddProductAdmin.php" method="get">
+							 <input type="text" name="name"  required placeholder="NameOfProduct">
+							<br><br>
+							<input type="text" name="price" required placeholder="PriceOfProduct">
+							<br><br>
+							<input type="text" name="type" required placeholder="TypeOfProduct">
+							<br><br>
+							<input type="text" name="brand"  required placeholder="BrandOfProduct">
+							<br><br>
+							<input type="text" name="quantity" required placeholder="QuantityOfProduct">
+							<br><br>
+							<input type="submit" value="ADD" class="buttonProduct">
+                        </form>
+                    </div>
+                    <div class="col">
+                        <h2>Add Store</h2>
+                            <form action="AddStoreAdmin.php">
+                                <input type="text" name="name"  required placeholder="NameOfStore">
+                                <br><br>
+                                <input type="text" name="type" required placeholder="TypeOfStore">
+                                <br><br>
+                                <input type="text" name="ownerName" required placeholder="OwnerName">
+                                <br><br>
+                                <input type="text" name="location"  required placeholder="Location">
+                                <br><br>
+								
+								<input type="submit" value="ADD" class="buttonStore">	
+							</form>
+                    </div>
+                     <div class="col">
+					 
+                        <h2>Add Brand</h2>
+
+						<form action="AddBrandAdministrator.php" method="get">
+							<input type="text" name="brandname" placeholder="BrandName">
+							<br><br><br>
+							<input type="text" name="brandcategory" placeholder="BrandCategory">
+								<br><br>
+							 <input type="submit" value="ADD" class="buttonBrand">
+						</form>
+					 
+                    </div>
+                    <div class="col">
+						<form action="manageStatistics.php" method="get">
+							<h3>Add statistic</h3>
+							<select name="statname">
+								<option value=""></option>
+								<option value="Max sold product">Max sold product</option>
+								<option value="Min sold product">Min sold product</option>
+								<option value="Max sold brand">Max sold brand</option>
+								<option value="Max sold brand">Max sold brand</option>
+								<option value="Max buyer">Max buyer</option>
+								<option value="Min buyer">Min buyer</option>
+							</select>
+							<br><br><br><br>
+							<input type="submit" value="Add Statistic" name="edit"></input>
+							<br><br>
+							<input type="submit" value="Remove Statistic" name="edit"></input>
+						</form>
+       
+                    </div>
+					
+                </div>
+				<div class="row1">
+                     <div class="col1">
+                        <h3>View List of requests</h3>
+                         <a href="AdminRequests.php"><button class="buttonRequest">show</button></a>
+                    </div>
+             </div>
+            </div>
+        </div>
+            
+            
+        
+        
+        
+        
+        
+        
+        <script src="JQuery/jquery-3.3.1.min.js"></script>
+        <script src="JQuery/script.js"></script>
+    </body>
+</html>
