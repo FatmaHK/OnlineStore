@@ -25,16 +25,12 @@ import com.SWE.Repositories.*;
 public class StoreController {
 	@Autowired
 	private StoreRepository storeRepository;
-	
 	@Autowired
 	private StoreActionsRepo saRepository;
-	
 	@Autowired
 	private UserRepository userRepository;
-	
 	@Autowired
 	private StoreProductRepo storeProductRepo;
-	
 	@Autowired
 	private  StoreBrandRepo storeBrandRepo;
 	@Autowired
@@ -45,10 +41,12 @@ public class StoreController {
 	public StoreController() {
 		
 	}
+	
 	public StoreController(StoreProductRepo storeProductRepo2, StoreActionsRepo actionRepo) {
 		this.storeProductRepo = storeProductRepo2;
 		this.saRepository = actionRepo;
 	}
+	
 	public StoreController(StoreBrandRepo storeBrandRepo2, StoreActionsRepo actionRepo) {
 		this.storeBrandRepo = storeBrandRepo2;
 		this.saRepository = actionRepo;
@@ -65,7 +63,6 @@ public class StoreController {
 		storeRepository.save(newStore);
 		return true;
 	}
-	
 	
 	@GetMapping("/onlinemarket/addstore/accept-request")
 	public boolean acceptStore(Model model, @ModelAttribute Store newStore) {
@@ -297,19 +294,19 @@ public class StoreController {
 		}
 	}
 	
-	
 	public ProductRepository getProductRepo() {
 		return productRepo;
 	}
+	
 	public void setProductRepo(ProductRepository productRepo) {
 		this.productRepo = productRepo;
 	}
+	
 	public BrandRepository getBrandRepo() {
 		return brandRepo;
 	}
+	
 	public void setBrandRepo(BrandRepository brandRepo) {
 		this.brandRepo = brandRepo;
 	}
-	
-	
 }
