@@ -166,7 +166,7 @@ public class StoreController {
 	
 	public boolean addBrand(Store s, Brand b, StoreAction a) {
 		StoreBrand sb = new StoreBrand();
-		sb.setBrand(b);;
+		sb.setBrand(b);
 		sb.setStore(s);
 		storeBrandRepo.save(sb);
 		
