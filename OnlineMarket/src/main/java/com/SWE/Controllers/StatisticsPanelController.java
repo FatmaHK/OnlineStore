@@ -29,24 +29,18 @@ import com.SWE.Repositories.StoreRepository;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class StatisticsPanelController {
-	
+public class StatisticsPanelController {	
 	
 	@Autowired
 	private StatisticsRepo statRepo;
-	
 	@Autowired
 	private ProductRepository productRepo;
-	
 	@Autowired
 	private BrandRepository brandRepo;
-	
 	@Autowired
 	private StoreRepository storeRepo;
-	
 	@Autowired
 	private StoreProductRepo storeProductRepo;
-	
 	@Autowired
 	private StoreBrandRepo sbRepo;
 	
