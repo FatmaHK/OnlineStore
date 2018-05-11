@@ -18,6 +18,10 @@ public class minSoldProduct extends StatisticsCommand{
 
 	private StoreProductRepo spRepo;
 
+	
+	public minSoldProduct() {
+		
+	}
 
 	public minSoldProduct(StoreProductRepo storeProductRepo) {
 		this.spRepo = storeProductRepo;
@@ -30,12 +34,18 @@ public class minSoldProduct extends StatisticsCommand{
 		Store s= new Store();
 		s.setId(store_id);
 		ArrayList<String> products= spRepo.findMinByStore_id(s);
-		ProductController pc = new ProductController();
-		StatResult res = new StatResult();
-		res.statName = commandName;
-		res.statEntity = products.get(0);
-//		Product p = pc.getProductByID(res.entityID);
-//		res.statEntity = p.getName();
-		return res;
+		System.out.println(products);
+		try {
+			ProductController pc = new ProductController();
+			StatResult res = new StatResult();
+			res.statName = commandName;
+			res.statEntity = products.get(0);
+//			Product p = pc.getProductByID(res.entityID);
+//			res.statEntity = p.getName();
+			return res;
+		}catch(Exception e) {
+			return null;
+		}
+		
 	}
 }

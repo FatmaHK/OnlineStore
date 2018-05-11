@@ -33,13 +33,18 @@ public class minSoldBrand extends StatisticsCommand{
 		Store s= new Store();
 		s.setId(store_id);
 		ArrayList<String> brands= sbRepo.findMinByStore_id(s);
-		BrandController bc = new BrandController();
-		StatResult res = new StatResult();
-		res.statName = commandName;
-		res.statEntity = brands.get(0);
-//		Brand b = bc.getBrandByID(res.entityID);
-//		res.statEntity = b.getName();
-		return res;
+		try {
+			BrandController bc = new BrandController();
+			StatResult res = new StatResult();
+			res.statName = commandName;
+			res.statEntity = brands.get(0);
+//			Brand b = bc.getBrandByID(res.entityID);
+//			res.statEntity = b.getName();
+			return res;
+		}catch(Exception e) {
+			return null;
+		}
+		
 	}
 }
 

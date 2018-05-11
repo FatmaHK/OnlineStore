@@ -31,6 +31,10 @@ public class UserController {
    // @CrossOrigin(origins = "*")
     public User register(Model model, @ModelAttribute User newUser){
     	model.addAttribute("newUser", new User());
+    	User temp = userRepository.findByEmail(newUser.getEmail());
+    	if(temp != null) {
+    		return null;
+    	}
     	userRepository.save(newUser);
     	System.out.println(newUser.getPassword());
     	System.out.println(newUser.getEmail());
@@ -43,6 +47,7 @@ public class UserController {
     	for(User us : userRepository.findAll()) {
     		if(us.getUsername().equals(loginUser.getUsername()) && us.getPassword().equals(loginUser.getPassword())) {
     			System.out.println("Successfully login! ");
+    			us.setStores(null);
     			return us;
     		}
     	}

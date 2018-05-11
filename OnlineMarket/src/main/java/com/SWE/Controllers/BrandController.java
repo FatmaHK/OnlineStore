@@ -20,17 +20,22 @@ public class BrandController {
 	private BrandRepository brandRepository;
 
 	@GetMapping("/onlinemarket/addbrand")
-	public void addBrand(Model model, @ModelAttribute Brand newBrand) {
+	public boolean addBrand(Model model, @ModelAttribute Brand newBrand) {
 		model.addAttribute("newBrand", new Brand());
+		Brand b = brandRepository.findByName(newBrand.getName());
+		if(b != null) {
+			return false;
+		}
 		brandRepository.save(newBrand);
+		return true;
 	}
 	
-	public Brand getBrandByID(int id) {
-		for(Brand b : brandRepository.findAll())
-        {
-            if(b.getId() == id)
-            	return b;
-        }
-        return null;
-	}
+//	public Brand getBrandByID(int id) {
+//		for(Brand b : brandRepository.findAll())
+//        {
+//            if(b.getId() == id)
+//            	return b;
+//        }
+//        return null;
+//	}
 }

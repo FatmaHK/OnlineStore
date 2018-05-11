@@ -93,7 +93,7 @@ public class ProductController {
 //	}
 	
 	@GetMapping("/onlinemarket/buyproduct/{username}/{sname}/{pname}/{requiredAmount}")
-	public boolean buyProduct(@PathVariable String username, @PathVariable String sname, @PathVariable String pname, @PathVariable int requiredAmount) {
+	public double buyProduct(@PathVariable String username, @PathVariable String sname, @PathVariable String pname, @PathVariable int requiredAmount) {
 		User user= new User();
 		user.setUsername(username);
 		Store s = new Store();
@@ -168,9 +168,9 @@ public class ProductController {
 			double totalPrice= buyProcess.getTotalPrice();
 			buyProcess.setTotalPrice((float)(totalPrice- decreaseAmount* totalPrice));
 			userProductRepo.save(buyProcess);
-			return true;
+			return buyProcess.getTotalPrice();
 		}
-		return false;
+		return -1;
 	}
 	
 	 @GetMapping("/get-products")

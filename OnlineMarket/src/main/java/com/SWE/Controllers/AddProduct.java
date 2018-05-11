@@ -21,18 +21,22 @@ import com.SWE.Repositories.StoreRepository;
 public class AddProduct extends StoreCommand{
 	
 	@Autowired
-	StoreActionsRepo saRepository;
+	public StoreActionsRepo saRepository;
 	@Autowired
-	ActionRepo actionRepository;
+	public ActionRepo actionRepository;
 	@Autowired
-	StoreRepository storeRepository;
+	public StoreRepository storeRepository;
 	@Autowired
-	StoreProductRepo storeProductRepo;
+	public StoreProductRepo storeProductRepo;
 	@Autowired
-	ProductRepository productRepo;
+	public ProductRepository productRepo;
 
 	@GetMapping("/onlinemarket/addProductToStore/{sName}/{pName}/{quantity}/{price}")
 	public boolean execute(@PathVariable String sName, @PathVariable String pName, @PathVariable int quantity, @PathVariable int price) {
+		Product product = productRepo.findByName(pName);
+		if(product == null) {
+			return false;
+		}
 		Product p = productRepo.findByName(pName);
 		Store s = storeRepository.findByName(sName);
 		StoreAction a = actionRepository.findByName("Add product");

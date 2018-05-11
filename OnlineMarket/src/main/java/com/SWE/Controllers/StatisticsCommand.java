@@ -24,22 +24,26 @@ public abstract class StatisticsCommand {
 //		this.statRepo = statRepo;
 //	}
 
-	public static void enableStatistics(String statName) {
+	public static boolean enableStatistics(String statName) {
 		for(Statistic s: statRepo.findAll()) {
 			if(s.getName().equals(statName)) {
 				s.setEnabled(true);
 				statRepo.save(s);
+				return true;
 			}
 		}
+		return false;
 	}
 	
-	public static void disableStatistics(String statName) {
+	public static boolean disableStatistics(String statName) {
 		for(Statistic s: statRepo.findAll()) {
 			if(s.getName().equals(statName)) {
 				s.setEnabled(false);
 				statRepo.save(s);
+				return true;
 			}
 		}
+		return false;
 	}
 	
 	public abstract StatResult execute(int store_id);

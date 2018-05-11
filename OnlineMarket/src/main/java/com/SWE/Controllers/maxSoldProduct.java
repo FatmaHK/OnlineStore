@@ -31,7 +31,7 @@ public class maxSoldProduct extends StatisticsCommand{
 		Store s= new Store();
 		s.setId(store_id);
 		ArrayList<String> products= spRepo.findByStore_id(s);
-		if(products != null) {
+		try {
 			ProductController pc = new ProductController();
 			StatResult res = new StatResult();
 			res.statName = commandName;
@@ -39,8 +39,9 @@ public class maxSoldProduct extends StatisticsCommand{
 //			Product p = pc.getProductByID(res.entityID);
 //			res.statEntity = p.getName();
 			return res;
+		}catch(Exception e) {
+			return null;
 		}
-		return null;
 	}
 
 	

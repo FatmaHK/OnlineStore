@@ -57,6 +57,10 @@ public class StoreController {
 	@GetMapping("/onlinemarket/addstore/request")
 	public boolean requestToAddStore(Model model, @ModelAttribute Store newStore) {
 		model.addAttribute("newStore", new Store());
+		Store s = storeRepository.findByName(newStore.getName());
+		if(s != null) {
+			return false;
+		}
 		newStore.setIsAccepted(false);	
 		storeRepository.save(newStore);
 		return true;
@@ -182,13 +186,18 @@ public class StoreController {
 	
 	public boolean editProduct(Product newproduct, Store s, int pId, StoreAction a) {
 		newproduct.setId(pId);
-		for(Product p: productRepo.findAll()) {
-			if(p.getId() == pId) {
-				p.setQuantity(newproduct.getQuantity());
-				p.setPrice(newproduct.getPrice());
-				productRepo.save(p);
+		boolean exist = false;
+		for(StoreProduct sp: storeProductRepo.findAll()) {
+			if(sp.getStore().getId() == s.getId() && sp.getProduct().getId() == pId) {
+				sp.setQuantity(newproduct.getQuantity());
+				sp.setPrice(newproduct.getPrice());
+				storeProductRepo.save(sp);
+				exist = true;
 				break;
 			}
+		}
+		if(exist == false) {
+			return false;
 		}
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
@@ -222,12 +231,17 @@ public class StoreController {
 	}
 
 	public boolean deleteProduct(Store s, Product p, StoreAction a) {
+		StoreProduct sp = null;
 		for(StoreProduct spt: storeProductRepo.findAll()) {
 			if(spt.getProduct()== p && spt.getStore() == s) {
-				storeProductRepo.delete(spt);
+				sp = spt;
 				break;
 			}
 		}
+		if(sp == null) {
+			return false;
+		}
+		storeProductRepo.delete(sp);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		System.out.println(dateFormat.format(date));

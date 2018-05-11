@@ -35,6 +35,9 @@ public class EditProduct extends StoreCommand{
 	@GetMapping("/onlinemarket/editProductToStore/{sName}/{pId}")
 	public boolean execute(@PathVariable String sName, @PathVariable int pId, Model model, Product newproduct) {
 		Store s = storeRepository.findByName(sName);
+		if(s == null) {
+			return false;
+		}
 		StoreAction a = actionRepository.findByName("Edit product");
 		sc= new StoreController(storeProductRepo, saRepository);
 		sc.setProductRepo(productRepo);
