@@ -39,7 +39,6 @@ public class StoreController {
 		return true;
 	}
 	
-	
 	@GetMapping("/onlinemarket/addstore/accept-request")
 	public boolean acceptStore(Model model, @ModelAttribute Store newStore) {
 		model.addAttribute("newStore", new Store());
@@ -73,5 +72,4 @@ public class StoreController {
 		}
 		return statistics;
 	}
-	
 }
